@@ -1,3 +1,4 @@
 node_modules/
+prisma/client/
 yarn-err.log
 .env

@@ -1,5 +1,6 @@
 import { Client } from 'discord.js';
 import commands from './commands';
+import { ClientContext } from './types';
 
 const client = new Client();
 
@@ -7,7 +8,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 client.on('message', async (message) => {
     const { author, channel, content, guild } = message;
-    const context = {
+    const context: ClientContext = {
         author,
         channel,
         guild,

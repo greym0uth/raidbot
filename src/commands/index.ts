@@ -1,3 +1,6 @@
+import { prisma } from '../../prisma/client';
+import { Arguments } from '../types';
+
 export default {
     create: {
         exec(args: Arguments, context): string {

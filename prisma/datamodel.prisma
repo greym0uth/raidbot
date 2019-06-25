@@ -1,5 +1,6 @@
 type User {
   id: ID! @id
+  handle: String!
   name: String!
   guild: String!
   exp: Int! @default(value: 0)
