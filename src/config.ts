@@ -1,6 +1,6 @@
 import {ClientOptions, ServerOptions} from './types';
 
-export const defaultClientOptions: ClientOptions = {
+export const clientOptions: ClientOptions = {
     prefix: 'r!',
 };
 

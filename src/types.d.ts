@@ -6,8 +6,13 @@ declare interface ClientContext {
     guild: Guild;
 }
 
-declare interface character {
+declare interface Command {
+    exec(args: Arguments, context: ClientContext): Promise<string> | string;
+    description: string;
+}
 
+declare interface Commands {
+    [key: string]: Command;
 }
 
 declare interface ClientOptions {

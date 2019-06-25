@@ -1,22 +1,22 @@
 import { prisma } from '../../prisma/client';
-import { Arguments } from '../types';
+import { Arguments, ClientContext, Commands, Command } from '../types';
 
-export default {
-    create: {
-        exec(args: Arguments, context): string {
-        //TODO HOOK 
-        return 'implement'
-        },
-        description: 'This creates a character',
-    },
+import create from './create';
+import info from './info';
+
+const commands: Commands = {
+    create,
+    info,
     help: {
-        exec(args: Arguments, context): string {
-            let response = '';
-            Object.keys(this).forEach((key) => {
-                response = `${response}${this[key]}: ${this[key].description}\n`;
-            })
+        exec(args: Arguments, context: ClientContext): string {
+            let response = '```md\n###-----Raidbot Help-----\n';
+            Object.keys(commands).forEach((key) => {
+                response = `${response}${key}: ${commands[key].description}\n`;
+            });
+            return response + '```';
         },
-        description: 'its the help the dog, c\'mon'
-    }
+        description: 'its the help the dog, c\'mon',
+    } as Command,
+};
 
-}
+export default commands;
