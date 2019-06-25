@@ -1,5 +1,6 @@
 type User {
   id: ID! @id
   name: String!
-  level: 
+  guild: String!
+  exp: Int! @default(value: 0)
 }
