@@ -4,13 +4,6 @@ import { Arguments, ClientContext, Command } from "../types";
 export default {
     async exec(args: Arguments, context: ClientContext): Promise<string> {
         try {
-            if (await prisma.$exists.user({
-                handle: context.author.id,
-                guild: context.guild.id,
-            })) {
-                return 'You already have a character.';
-            }
-
             const users = await prisma.users({ where: {
                 handle: context.author.id,
                 guild: context.guild.id,

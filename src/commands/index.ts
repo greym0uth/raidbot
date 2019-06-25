@@ -9,7 +9,7 @@ const commands: Commands = {
     info,
     help: {
         exec(args: Arguments, context: ClientContext): string {
-            let response = '```md\n###-----Raidbot Help-----\n';
+            let response = '```md\n-----Raidbot Help-----\n';
             Object.keys(commands).forEach((key) => {
                 response = `${response}${key}: ${commands[key].description}\n`;
             });
